@@ -1,0 +1,76 @@
+.faq-page {
+    padding-bottom: 80px;
+    background: var(--surface);
+}
+
+.faq-header {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.faq-header h1 span {
+    color: var(--primary);
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.faq-item {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.faq-question {
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.faq-question h3 {
+    font-size: 18px;
+    margin: 0;
+    color: var(--secondary);
+}
+
+.faq-question .toggle-icon {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.faq-answer {
+    padding: 0 30px 25px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.faq-item.open {
+    border: 1px solid var(--primary);
+}

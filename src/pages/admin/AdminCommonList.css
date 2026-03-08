@@ -1,0 +1,38 @@
+.admin-common-list .admin-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.taxonomy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.taxonomy-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+}
+
+.tax-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.tax-icon {
+    font-size: 20px;
+}
+
+.tax-info strong {
+    font-size: 15px;
+}
+
+.tax-actions {
+    display: flex;
+    gap: 10px;
+}
