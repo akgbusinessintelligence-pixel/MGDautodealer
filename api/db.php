@@ -12,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 // Database Credentials (Update these with your cPanel details)
 $host = 'localhost';
-$db_name = 'mgd_autodealer';
-$username = 'root';
-$password = '';
+$db_name = 'mgdautodealer_database';
+$username = 'mgdautodealer_user';
+$password = '4y(SOXNWON7fWTwk';
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
