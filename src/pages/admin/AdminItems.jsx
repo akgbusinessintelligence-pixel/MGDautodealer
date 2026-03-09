@@ -25,7 +25,7 @@ const AdminItems = () => {
         <div className="admin-items">
             <div className="admin-page-header">
                 <h1 className="page-title">Inventory <span>Management</span></h1>
-                <button className="btn btn-primary">+ Add New Item</button>
+                <Link to="/admin/items/edit/new" className="btn btn-primary">+ Add New Item</Link>
             </div>
 
             <div className="table-container card">

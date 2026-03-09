@@ -95,9 +95,9 @@ const ListingDetail = () => {
                         <div className="seller-card">
                             <h3>Contact Seller</h3>
                             <div className="seller-info">
-                                <strong>International Union Cars</strong>
-                                <p>📍 1234 Caledon Road, Toronto</p>
-                                <p>📩 sales@iucars.com</p>
+                                <strong>MGD Autodealer</strong>
+                                <p>📍 1004 Chambers St, Trenton, NJ 08611</p>
+                                <p>📩 sales@mgdautodealer.com</p>
                             </div>
                             <form className="contact-form">
                                 <input type="text" placeholder="Your Name" required />
@@ -108,7 +108,7 @@ const ListingDetail = () => {
                                 </button>
                             </form>
                             <button className="btn btn-outline" style={{ width: '100%', marginTop: '10px' }}>
-                                Call: +1 416 555-0199
+                                Call: (609) 503-5685
                             </button>
                         </div>
                     </aside>
