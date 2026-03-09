@@ -13,6 +13,32 @@ import AdminDashboard from './pages/admin/AdminDashboard.jsx';
 import AdminItems from './pages/admin/AdminItems.jsx';
 import AdminCommonList from './pages/admin/AdminCommonList.jsx';
 import AdminEditItem from './pages/admin/AdminEditItem.jsx';
+import AdminLogin from './pages/admin/AdminLogin.jsx';
+
+const MainLayout = () => (
+    <>
+        <Header />
+        <main>
+            <Outlet />
+        </main>
+        <Footer />
+    </>
+);
+
+const AdminRoutes = () => (
+    <AdminLayout>
+        <Routes>
+            <Route index element={<AdminDashboard />} />
+            <Route path="items" element={<AdminItems />} />
+            <Route path="items/edit/:id" element={<AdminEditItem />} />
+            <Route path="categories" element={<AdminCommonList type="Categories" />} />
+            <Route path="makes" element={<AdminCommonList type="Makes" />} />
+            <Route path="models" element={<AdminCommonList type="Models" />} />
+            <Route path="configuration" element={<div>System Settings</div>} />
+            <Route path="*" element={<Navigate to="." replace />} />
+        </Routes>
+    </AdminLayout>
+);
 
 const routerBase = import.meta.env.BASE_URL === '/'
     ? '/'
