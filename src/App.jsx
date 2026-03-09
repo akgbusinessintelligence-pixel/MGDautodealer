@@ -40,9 +40,29 @@ const AdminRoutes = () => (
     </AdminLayout>
 );
 
+const routerBase = import.meta.env.BASE_URL === '/'
+    ? '/'
+    : import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const MainLayout = () => (
+    <>
+        <Header />
+        <main>
+            <Outlet />
+        </main>
+        <Footer />
+    </>
+);
+
+const AdminShell = () => (
+    <AdminLayout>
+        <Outlet />
+    </AdminLayout>
+);
+
 function App() {
     return (
-        <Router basename={import.meta.env.BASE_URL}>
+        <Router basename={routerBase}>
             <div className="app-wrapper">
                 <Routes>
                     <Route element={<MainLayout />}>
@@ -53,7 +73,18 @@ function App() {
                         <Route path="contact" element={<Contact />} />
                         <Route path="faq" element={<FAQ />} />
                     </Route>
-                    <Route path="admin/*" element={<AdminRoutes />} />
+
+                    <Route path="admin" element={<AdminShell />}>
+                        <Route index element={<AdminDashboard />} />
+                        <Route path="items" element={<AdminItems />} />
+                        <Route path="items/edit/:id" element={<AdminEditItem />} />
+                        <Route path="categories" element={<AdminCommonList type="Categories" />} />
+                        <Route path="makes" element={<AdminCommonList type="Makes" />} />
+                        <Route path="models" element={<AdminCommonList type="Models" />} />
+                        <Route path="configuration" element={<div>System Settings</div>} />
+                        <Route path="*" element={<Navigate to="." replace />} />
+                    </Route>
+
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </div>
