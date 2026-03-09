@@ -13,6 +13,7 @@ import AdminDashboard from './pages/admin/AdminDashboard.jsx';
 import AdminItems from './pages/admin/AdminItems.jsx';
 import AdminCommonList from './pages/admin/AdminCommonList.jsx';
 import AdminEditItem from './pages/admin/AdminEditItem.jsx';
+import AdminLogin from './pages/admin/AdminLogin.jsx';
 
 const MainLayout = () => (
     <>
