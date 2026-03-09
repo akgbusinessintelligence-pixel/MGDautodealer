@@ -17,6 +17,7 @@ import AdminLogin from './pages/admin/AdminLogin.jsx';
 
 function App() {
     return (
+        <Router basename={import.meta.env.BASE_URL}>
         <Router basename="/2026">
             <div className="app-wrapper">
                 <Routes>
