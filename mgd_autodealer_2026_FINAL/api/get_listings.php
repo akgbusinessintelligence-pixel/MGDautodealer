@@ -1,5 +1,4 @@
 <?php
-require_once 'cors.php';
 require_once 'db.php';
 
 $id = isset($_GET['id']) ? $_GET['id'] : null;

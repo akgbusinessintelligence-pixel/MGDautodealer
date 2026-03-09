@@ -2,8 +2,8 @@
 
 :root {
   /* Color Palette */
-  --primary: #00a896;
-  --primary-dark: #008f7f;
+  --primary: #0066ff;
+  --primary-dark: #0052cc;
   --secondary: #1a1d1f;
   --background: #ffffff;
   --surface: #f4f5f6;
@@ -13,7 +13,7 @@
   --border: #e2e8f0;
 
   /* Gradents */
-  --gradient-primary: linear-gradient(135deg, #00a896 0%, #00d2be 100%);
+  --gradient-primary: linear-gradient(135deg, #0066ff 0%, #00a3ff 100%);
   --gradient-dark: linear-gradient(135deg, #1a1d1f 0%, #3a3f44 100%);
 
   /* Typography */

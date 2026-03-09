@@ -1,16 +1,7 @@
 <?php
-// Simple PHP helper to handle CORS and DB connection
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-header("Content-Type: application/json; charset=UTF-8");
+// db.php - Database connection only
+// Note: Headers are handled in cors.php
 
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
-    exit;
-}
-
-// Database Credentials (Update these with your cPanel details)
 $host = 'localhost';
 $db_name = 'mgdautodealer_database';
 $username = 'mgdautodealer_user';
@@ -19,8 +10,12 @@ $password = '4y(SOXNWON7fWTwk';
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    echo json_encode(["error" => "Connection failed: " . $e->getMessage()]);
+    $conn->exec("set names utf8");
+} catch (PDOException $e) {
+    // If this is included in an API call, it should return JSON
+    // We rely on the calling script or cors.php to have set the header
+    http_response_code(500);
+    echo json_encode(["error" => "Database Connection Failed", "details" => $e->getMessage()]);
     exit;
 }
 ?>

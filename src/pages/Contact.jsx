@@ -34,14 +34,14 @@ const Contact = () => {
                                 <span className="icon">📍</span>
                                 <div>
                                     <strong>Address</strong>
-                                    <p>20 Main St, Toronto, ON M5V 1A1</p>
+                                    <p>1004 Chambers St, Trenton, NJ 08611</p>
                                 </div>
                             </div>
                             <div className="info-item">
                                 <span className="icon">📞</span>
                                 <div>
                                     <strong>Phone</strong>
-                                    <p>+1 416 123-4768</p>
+                                    <p>(609) 503-5685</p>
                                 </div>
                             </div>
                             <div className="info-item">
