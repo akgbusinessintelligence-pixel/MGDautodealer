@@ -1,21 +1,8 @@
 <?php
-require_once 'cors.php';
 require_once 'db.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
-$data_raw = file_get_contents("php://input");
-$data = json_decode($data_raw);
-
-// Method Override Support
-if ($method === 'POST') {
-    if (isset($data->_method)) {
-        $method = $data->_method;
-    } elseif (isset($_GET['action']) && $_GET['action'] === 'delete') {
-        $method = 'DELETE';
-    }
-}
-
-api_log("Final Method: $method");
+$data = json_decode(file_get_contents("php://input"));
 
 try {
     if ($method === 'POST') {
@@ -24,19 +11,19 @@ try {
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([
-            $data->title ?? '',
-            $data->price ?? 0,
-            $data->year ?? date('Y'),
-            $data->bodyType ?? '',
-            $data->fuelType ?? '',
-            $data->mileage ?? '',
-            $data->gearbox ?? '',
-            $data->doors ?? 4,
-            $data->topSpeed ?? '',
-            $data->engine ?? '',
-            $data->color ?? '',
-            $data->image ?? '',
-            (isset($data->featured) && $data->featured) ? 1 : 0
+            $data->title,
+            $data->price,
+            $data->year,
+            $data->bodyType,
+            $data->fuelType,
+            $data->mileage,
+            $data->gearbox,
+            $data->doors,
+            $data->topSpeed,
+            $data->engine,
+            $data->color,
+            $data->image,
+            $data->featured ? 1 : 0
         ]);
         echo json_encode(["message" => "Listing created successfully", "id" => $conn->lastInsertId()]);
 
@@ -46,19 +33,19 @@ try {
                 WHERE id=?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([
-            $data->title ?? '',
-            $data->price ?? 0,
-            $data->year ?? date('Y'),
-            $data->bodyType ?? '',
-            $data->fuelType ?? '',
-            $data->mileage ?? '',
-            $data->gearbox ?? '',
-            $data->doors ?? 4,
-            $data->topSpeed ?? '',
-            $data->engine ?? '',
-            $data->color ?? '',
-            $data->image ?? '',
-            (isset($data->featured) && $data->featured) ? 1 : 0,
+            $data->title,
+            $data->price,
+            $data->year,
+            $data->bodyType,
+            $data->fuelType,
+            $data->mileage,
+            $data->gearbox,
+            $data->doors,
+            $data->topSpeed,
+            $data->engine,
+            $data->color,
+            $data->image,
+            $data->featured ? 1 : 0,
             $data->id
         ]);
         echo json_encode(["message" => "Listing updated successfully"]);
